@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.udacity.shoestore.R" />
+
+        <variable
+            name="user"
+            type="String" />
+
+        <variable
+            name="newUser"
+            type="Boolean" />
+    </data>
+
+    <!-- Using LinearLayout as all elements are positioned in one linear line one below the other -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="@dimen/keyline_6"
+        android:paddingTop="@dimen/keyline_4">
+
+        <TextView
+            android:id="@+id/welcome_title_text"
+            style="@style/TextAppearance.MyTheme.Headline5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_6"
+            android:layout_marginBottom="@dimen/keyline_6"
+            android:text="@{context.getString(R.string.welcome_user, user)}"
+            android:textAlignment="center"
+            tools:text="Hi, user" />
+
+        <TextView
+            android:id="@+id/welcome_body_text"
+            style="@style/TextAppearance.MyTheme.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:justificationMode="inter_word"
+            android:text="@{context.getString(newUser ? R.string.welcome_new_user : R.string.welcome_existing_user)}"
+            tools:targetApi="o"
+            tools:text="@string/welcome_existing_user" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/text_next" />
+    </LinearLayout>
+</layout>

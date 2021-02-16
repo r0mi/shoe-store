@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <!-- Using LinearLayout as all elements are positioned in one linear line one below the other -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="@dimen/keyline_6"
+        android:paddingTop="@dimen/keyline_4">
+
+        <TextView
+            android:id="@+id/instructions_title_text"
+            style="@style/TextAppearance.MyTheme.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_6"
+            android:layout_marginBottom="@dimen/keyline_6"
+            android:text="@string/how_to_use"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/instructions_body_text"
+            style="@style/TextAppearance.MyTheme.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:justificationMode="inter_word"
+            android:text="@string/instructions"
+            tools:targetApi="o" />
+
+        <Button
+            android:id="@+id/view_shoes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/view_shoes" />
+    </LinearLayout>
+</layout>

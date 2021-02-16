@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.udacity.shoestore.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <!-- I've chosen LinearLayout just for demonstration purposes even though ConstraintLayout would
+    allow me to get rid of the nesting of layouts that is required with LinearLayouts.  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/keyline_4"
+        android:paddingTop="@dimen/keyline_4"
+        android:paddingEnd="@dimen/keyline_4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/shoe_company"
+                style="@style/TextAppearance.MyTheme.Subtitle1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{shoe.company}"
+                tools:text="Timberland" />
+
+            <TextView
+                android:id="@+id/shoe_size"
+                style="@style/TextAppearance.MyTheme.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{context.getString(R.string.size_format, shoe.size)}"
+                tools:text="Size 10.5" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/shoe_name"
+            style="@style/TextAppearance.MyTheme.Body1.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{shoe.name}"
+            tools:text="Men's Premium 6inch Waterproof Boot" />
+
+        <TextView
+            android:id="@+id/shoe_description"
+            style="@style/TextAppearance.MyTheme.Body2.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{shoe.description}"
+            android:visibility="@{shoe.description.length() > 0 ? View.VISIBLE : View.GONE}"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/keyline_4"
+            android:background="@color/blue_200" />
+
+    </LinearLayout>
+</layout>

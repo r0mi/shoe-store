@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Shoe Store</string>
+    <string name="login_title">Login</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Password</string>
+    <string name="login_text">Log In</string>
+    <string name="create_account_text">Create Account</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_email_not_valid">Please enter a valid email</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_password_too_short">Password must be at least 5 characters long</string>
+    <string name="app_logo_description">Shopping basket</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="welcome_user">Hi, %s!</string>
+    <string name="text_next">Next</string>
+    <string name="welcome_existing_user">It\'s so nice to see you again. How have you been?</string>
+    <string name="welcome_new_user">A very warm welcome to our newest member.\nWe are very pleased you\'ve chosen our app for keeping inventory over your shoes..</string>
+    <string name="view_shoes">View Shoes</string>
+    <string name="instructions_title">Instructions</string>
+    <string name="how_to_use">Some pointers on how to use this app</string>
+    <string name="instructions">The next page gives you an overview of all the shoes in your inventory.
+\n\nTo add a new shoe to the list, click on the round button with a plus sign near the bottom of the screen. This will open up a form where you can provide details about the shoe. Note that all fields except description are required.
+\nClicking on the Save button will navigate you back to the shoe list view if all required fields were filled out. The Cancel, Back or Navigate Up buttons will also take you back to the shoe list view, but without adding the shoe to the list.
+\n\nTo log out of the app just click on the logout menu item on the toolbar.</string>
+    <string name="fab_content_description">Create a new shoe</string>
+    <string name="log_out">Log out</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="company">Company</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="description">Description</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="shoe_details_title">Shoe Details</string>
+    <string name="error_required">This is required</string>
+    <string name="shoe_added">New shoe added!</string>
+    <string name="size_format">Size %.1f</string>
+</resources>

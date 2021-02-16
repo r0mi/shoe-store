@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/shoe_list_destination">
+
+    <fragment
+        android:id="@+id/login_destination"
+        android:name="com.udacity.shoestore.screens.login.LoginFragment"
+        android:label="@string/login_title"
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_login_destination_to_welcome_destination"
+            app:destination="@id/welcome_destination"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome_destination"
+        android:name="com.udacity.shoestore.screens.welcome.WelcomeFragment"
+        android:label="@string/welcome_title"
+        tools:layout="@layout/welcome_fragment">
+        <action
+            android:id="@+id/action_welcome_destination_to_instructions_destination"
+            app:destination="@id/instructions_destination"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <argument
+            android:name="user"
+            app:argType="string" />
+        <argument
+            android:name="newUser"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructions_destination"
+        android:name="com.udacity.shoestore.screens.instructions.InstructionsFragment"
+        android:label="@string/instructions_title"
+        tools:layout="@layout/instructions_fragment">
+        <action
+            android:id="@+id/action_instructions_destination_to_shoe_list_destination"
+            app:destination="@id/shoe_list_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/login_destination"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoe_list_destination"
+        android:name="com.udacity.shoestore.screens.shoes.ShoeListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/shoe_list_fragment">
+        <action
+            android:id="@+id/action_shoe_list_destination_to_login_destination"
+            app:destination="@id/login_destination"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/shoe_list_destination"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_shoe_list_destination_to_shoe_details_destination"
+            app:destination="@id/shoe_details_destination"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoe_details_destination"
+        android:name="com.udacity.shoestore.screens.shoes.ShoeDetailsFragment"
+        android:label="@string/shoe_details_title"
+        tools:layout="@layout/shoe_details_fragment">
+        <action
+            android:id="@+id/action_shoe_details_destination_to_shoe_list_destination"
+            app:destination="@id/shoe_list_destination"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/shoe_list_destination"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="shoe"
+            android:defaultValue="@null"
+            app:argType="com.udacity.shoestore.models.Shoe"
+            app:nullable="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.screens.login.LoginViewModel" />
+
+    </data>
+
+    <!-- Although most elements are laid out one below the other (which is ideal for LinearLayout),
+    the buttons at the bottom are not and I would have to use a nested LinearLayout to achieve the
+    same result. So to keep a plain layout structure without nesting I have chosen ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/keyline_6"
+        android:paddingTop="@dimen/keyline_4">
+
+        <ImageView
+            android:id="@+id/app_logo_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/keyline_6"
+            android:layout_marginBottom="@dimen/keyline_4"
+            android:contentDescription="@string/app_logo_description"
+            app:layout_constraintBottom_toTopOf="@+id/app_name_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/ic_shopping_bag" />
+
+
+        <TextView
+            android:id="@+id/app_name_text"
+            style="@style/TextAppearance.MyTheme.Body1.Medium.AllCaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/keyline_16"
+            android:text="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@+id/username_text_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_logo_image" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/username_text_input"
+            errorText='@{(viewModel.emailErrorStrResId != 0) ? context.getString(viewModel.emailErrorStrResId) : ""}'
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_email"
+            android:paddingBottom="@dimen/keyline_1"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/password_text_input"
+            app:layout_constraintTop_toBottomOf="@+id/app_name_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.email}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_text_input"
+            errorText='@{(viewModel.passwordErrorStrResId != 0) ? context.getString(viewModel.passwordErrorStrResId) : ""}'
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password"
+            android:paddingBottom="@dimen/keyline_1"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/create_account_button"
+            app:layout_constraintTop_toBottomOf="@+id/username_text_input"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/create_account_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/keyline_4"
+            android:onClick="@{() -> viewModel.createAccountAndLogin()}"
+            android:text="@string/create_account_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/login_button"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_text_input" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.login()}"
+            android:text="@string/login_text"
+            app:layout_constraintBottom_toBottomOf="@+id/create_account_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/create_account_button"
+            app:layout_constraintTop_toTopOf="@+id/create_account_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
